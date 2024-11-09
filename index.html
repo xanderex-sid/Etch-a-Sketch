@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sketch Pad</title>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="changeGridSize()">Change Grid Size</button>
+        <button id="draw" onclick="setMode('draw')" class="active">Draw</button>
+        <button id="eraser" onclick="setMode('erase')">Eraser</button>
+        <div class="file-upload">
+            Upload Background
+            <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+        </div>
+        <button onclick="removeBackground()">Remove Background</button>
+        <input type="color" id="bg-color" value="#DDDDDD" onchange="changeBackgroundColor(this.value)" title="Change Background Color">
+        <button class="download-btn" onclick="downloadAsJPG()">Download JPG</button>
+        <button class="download-btn" onclick="downloadAsFavicon()">Download Favicon</button>
+    </div>
+    <div class="color-container">
+        <button class="color-btn active" onclick="setColor('#333333')" style="background-color: #333333;"></button>
+        <button class="color-btn" onclick="setColor('#FF0000')" style="background-color: #FF0000;"></button>
+        <button class="color-btn" onclick="setColor('#00FF00')" style="background-color: #00FF00;"></button>
+        <button class="color-btn" onclick="setColor('#0000FF')" style="background-color: #0000FF;"></button>
+        <button class="color-btn" onclick="setColor('#FFFF00')" style="background-color: #FFFF00;"></button>
+        <button class="color-btn" onclick="setColor('#FF00FF')" style="background-color: #FF00FF;"></button>
+        <button class="color-btn" onclick="setColor('#00FFFF')" style="background-color: #00FFFF;"></button>
+        <button class="color-btn" onclick="setColor('#FFA500')" style="background-color: #FFA500;"></button>
+        <input type="color" id="custom-color" value="#333333" onchange="setColor(this.value)">
+    </div>
+
+    <div class="grid-controls">
+        <label for="grid-color">Grid Color:</label>
+        <input type="color" id="grid-color" value="#BCB9B9" onchange="updateGridColor(this.value)">
+        <button onclick="toggleGrid()">On/Off Grid Lines</button>
+    </div>
+    <img id="imagePreview" alt="Preview">
+    <div id="container"></div>
+    <canvas id="hidden-canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

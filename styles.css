@@ -1,0 +1,151 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 960px;
+}
+
+#bg-color {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.color-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+button, .file-upload {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-upload {
+    position: relative;
+    overflow: hidden;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+button:hover, .file-upload:hover {
+    background-color: #45a049;
+}
+
+button.active {
+    outline: 3px solid #333;
+}
+
+#eraser {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+}
+
+#eraser:hover {
+    background-color: #f0f0f0;
+}
+
+.download-btn {
+    background-color: #2196F3;
+}
+
+.download-btn:hover {
+    background-color: #1976D2;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+}
+
+.color-btn.active {
+    outline: 3px solid #333;
+    outline-offset: 2px;
+}
+
+#custom-color, #grid-color {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#container {
+    width: 960px;
+    height: 960px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid #333;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.grid-square {
+    box-sizing: border-box;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.grid-square.erased {
+    background-color: transparent !important;
+}
+
+.grid-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#imagePreview {
+    max-width: 200px;
+    margin-top: 10px;
+    display: none;
+}
+
+#hidden-canvas {
+    display: none;
+}

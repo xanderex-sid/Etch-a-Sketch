@@ -96,37 +96,6 @@ function createGrid(size) {
     
     const squareSize = 960 / size;
     
-    // Track touch drawing state
-    let isDrawing = false;
-    
-    // Add touch event listeners to container
-    container.addEventListener('touchstart', (e) => {
-        isDrawing = true;
-        e.preventDefault(); // Prevent scrolling while drawing
-    });
-    
-    container.addEventListener('touchend', () => {
-        isDrawing = false;
-    });
-    
-    container.addEventListener('touchmove', (e) => {
-        if (!isDrawing) return;
-        
-        const touch = e.touches[0];
-        const elements = document.elementsFromPoint(touch.clientX, touch.clientY);
-        const square = elements.find(el => el.classList.contains('grid-square'));
-        
-        if (square) {
-            if (currentMode === 'draw') {
-                square.style.backgroundColor = currentColor;
-                square.classList.remove('erased');
-            } else {
-                square.classList.add('erased');
-                square.style.backgroundColor = 'transparent';
-            }
-        }
-    });
-    
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
         square.classList.add('grid-square');
@@ -136,7 +105,6 @@ function createGrid(size) {
             square.style.border = `1px solid ${currentGridColor}`;
         }
         
-        // Keep existing mouse events for desktop
         square.addEventListener('mouseenter', (e) => {
             if (e.buttons === 1) {
                 if (currentMode === 'draw') {
